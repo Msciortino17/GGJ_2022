@@ -799,13 +799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The battle of heaven and hell.
-
-    Each player must spend money to spawn
-    minions that will fight each other.
-
-    Once all money has been spent, the war
-    will begin!'
+  m_Text: BUY MINIONS TO FIGHT
 --- !u!222 &945201185
 CanvasRenderer:
   m_ObjectHideFlags: 0
