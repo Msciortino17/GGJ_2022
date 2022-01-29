@@ -232,11 +232,12 @@ MonoBehaviour:
   CurrentRound: 0
   MinigameNames:
   - TestMiniGame
+  - HeavenHell
   TotalGameTimer: 0
   RoundTimer: 0
   MainCanvas: {fileID: 6678654159770636514}
   PauseMenu: {fileID: 6678654160473395792}
-  HUDMenu: {fileID: 4619334346359705534}
+  HUDMenu: {fileID: 4619334346359705532}
 --- !u!1 &6678654160473395792
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,16 +453,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
---- !u!1 &4619334346359705534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2068406288876062791, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
-  m_PrefabInstance: {fileID: 6678654158887471097}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4619334346359705533 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2068406288876062788, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
   m_PrefabInstance: {fileID: 6678654158887471097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4619334346359705532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2068406288876062789, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+  m_PrefabInstance: {fileID: 6678654158887471097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a82d0738c86cff44b7f181c9047fbe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6678654159378446870
 PrefabInstance:
   m_ObjectHideFlags: 0

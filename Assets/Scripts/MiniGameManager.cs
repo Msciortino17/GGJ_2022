@@ -30,6 +30,6 @@ public abstract class MiniGameManager : MonoBehaviour
 	/// </summary>
 	protected void RoundOver(int winner)
 	{
-		manager.RoundOver(winner);
+		GameManager.Instance.RoundOver(winner);
 	}
 }

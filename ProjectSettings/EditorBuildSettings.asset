@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGames/TestMiniGame.unity
     guid: 44366e05a26417147bafa6718eed7cf7
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/HeavenHell.unity
+    guid: 95cc2dc9d3bc3f041949540dea28ce70
   m_configObjects: {}

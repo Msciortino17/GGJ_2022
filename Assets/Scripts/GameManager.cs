@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 	[Header("References")]
 	public GameObject MainCanvas;
 	public GameObject PauseMenu;
-	public GameObject HUDMenu;
+	public HUD HUDMenu;
 
 	/// <summary>
 	/// Start is called before the first frame update
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
 
 		if (Winner != 0)
 		{
-			HUDMenu.SetActive(false);
+			HUDMenu.gameObject.SetActive(false);
 			SceneManager.LoadScene("VictoryScreen");
 			return true;
 		}
@@ -150,6 +150,7 @@ public class GameManager : MonoBehaviour
 	{
 		int levelToLoad = CurrentRound % MinigameNames.Count;
 		SceneManager.LoadScene(MinigameNames[levelToLoad]);
+		HUDMenu.InitHUDInfo();
 	}
 
 	/// <summary>

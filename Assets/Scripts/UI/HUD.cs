@@ -27,7 +27,7 @@ public class HUD : MonoBehaviour
 	/// <summary>
 	/// Fills in info for the hud that will be the same at the start of the mini game
 	/// </summary>
-	private void InitHUDInfo()
+	public void InitHUDInfo()
 	{
 		Player1ScoreText.text = "Player 1 - " + manager.Player1Score;
 		Player2ScoreText.text = "Player 2 - " + manager.Player2Score;
