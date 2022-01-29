@@ -12,7 +12,7 @@ public class HUD : MonoBehaviour
 	public Text Player2ScoreText;
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
 		manager = GameManager.Instance;
 		InitHUDInfo();

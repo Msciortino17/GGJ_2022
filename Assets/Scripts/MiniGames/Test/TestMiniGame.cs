@@ -11,6 +11,7 @@ public class TestMiniGame : MiniGameManager
 	void Start()
 	{
 		InitManager();
+		// Only doing this so I can easily tell if the we've moved onto another round
 		RandomText.text = "Random! " + Random.Range(0, 10000);
 	}
 

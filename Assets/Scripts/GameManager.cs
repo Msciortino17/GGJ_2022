@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
 	public float RoundTimer;
 
 	[Header("References")]
+	public GameObject MainCanvas;
 	public GameObject PauseMenu;
+	public GameObject HUDMenu;
 
 	/// <summary>
 	/// Start is called before the first frame update
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
 	{
 		SetupInstance();
 		CurrentRound = 1;
+		HUDMenu.gameObject.SetActive(true);
 		LoadMiniGame();
 	}
 
@@ -128,6 +131,7 @@ public class GameManager : MonoBehaviour
 
 		if (Winner != 0)
 		{
+			HUDMenu.SetActive(false);
 			SceneManager.LoadScene("VictoryScreen");
 			return true;
 		}
