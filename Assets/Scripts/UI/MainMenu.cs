@@ -5,16 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+	[Header("References")]
 	public GameObject CreditsMenu;
 	public GameObject TitleMenu;
 
-	// Start is called before the first frame update
+	/// <summary>
+	/// Start is called before the first frame update
+	/// </summary>
 	void Start()
 	{
 
 	}
 
-	// Update is called once per frame
+	/// <summary>
+	/// Update is called once per frame
+	/// </summary>
 	void Update()
 	{
 
