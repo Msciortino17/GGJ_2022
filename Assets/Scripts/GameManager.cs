@@ -10,6 +10,18 @@ public class GameManager : MonoBehaviour
 	[Header("States")]
 	public bool Paused;
 
+	[Header("Main Gameplay Stuff")]
+	public int ScoreToWin;
+	public int Player1Score;
+	public int Player2Score;
+	public int Winner; // 0 = no one won yet
+	public int CurrentRound;
+	public List<string> MinigameNames;
+
+	[Header("Timers")]
+	public float TotalGameTimer;
+	public float RoundTimer;
+
 	[Header("References")]
 	public GameObject PauseMenu;
 
@@ -19,6 +31,8 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		SetupInstance();
+		CurrentRound = 1;
+		LoadMiniGame();
 	}
 
 	/// <summary>
@@ -46,6 +60,7 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 		UpdateControls();
+		UpdateTimers();
 	}
 
 	/// <summary>
@@ -57,6 +72,77 @@ public class GameManager : MonoBehaviour
 		{
 			TogglePaused();
 		}
+	}
+
+	/// <summary>
+	/// Increments the game timers by delta time (unless paused)
+	/// </summary>
+	private void UpdateTimers()
+	{
+		if (Paused)
+			return;
+
+		TotalGameTimer += Time.deltaTime;
+		RoundTimer += Time.deltaTime;
+	}
+
+	/// <summary>
+	/// Called by minigame managers when their round is over.
+	/// This will update the score and move onto the next game.
+	/// </summary>
+	public void RoundOver(int winner)
+	{
+		if (winner == 1)
+		{
+			Player1Score++;
+		}
+		else if (winner == 2)
+		{
+			Player2Score++;
+		}
+
+		bool victory = VictoryCheck();
+		if (!victory)
+		{
+			CurrentRound++;
+			RoundTimer = 0f;
+			LoadMiniGame();
+		}
+	}
+
+	/// <summary>
+	/// This will simply check running score to see if there's a winner.
+	/// If so, we transition to the victory screen.
+	/// Returns true/false if the victory has been had.
+	/// </summary>
+	private bool VictoryCheck()
+	{
+		if (Player1Score >= ScoreToWin)
+		{
+			Winner = 1;
+		}
+		else if (Player2Score >= ScoreToWin)
+		{
+			Winner = 2;
+		}
+
+		if (Winner != 0)
+		{
+			SceneManager.LoadScene("VictoryScreen");
+			return true;
+		}
+
+		return false;
+	}
+
+	/// <summary>
+	/// Will load the next minigame
+	/// By checking the remainder of the current round, this will cycle through the levels that we add to the list.
+	/// </summary>
+	private void LoadMiniGame()
+	{
+		int levelToLoad = CurrentRound % MinigameNames.Count;
+		SceneManager.LoadScene(MinigameNames[levelToLoad]);
 	}
 
 	/// <summary>
