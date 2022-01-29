@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
 	/// </summary>
 	public void PlayGameButton()
 	{
-		SceneManager.LoadScene("GamePlay");
+		SceneManager.LoadScene("Gameplay");
 	}
 
 	/// <summary>

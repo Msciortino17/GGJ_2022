@@ -35,7 +35,10 @@ public class GameManager : MonoBehaviour
 		SetupInstance();
 		CurrentRound = 1;
 		HUDMenu.gameObject.SetActive(true);
-		LoadMiniGame();
+		if (SceneManager.GetActiveScene().name == "Gameplay")
+		{
+			LoadMiniGame();
+		}
 	}
 
 	/// <summary>
