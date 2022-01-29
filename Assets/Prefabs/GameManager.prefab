@@ -233,6 +233,7 @@ MonoBehaviour:
   MinigameNames:
   - TestMiniGame
   - HeavenHell
+  - CleanDirty
   TotalGameTimer: 0
   RoundTimer: 0
   MainCanvas: {fileID: 6678654159770636514}
@@ -359,6 +360,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6678654159770636518}
     m_Modifications:
+    - target: {fileID: 2068406288831839400, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068406288831839400, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068406288831839400, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2068406288876062788, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -451,6 +464,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2068406289613425218, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068406290165506828, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068406290165506828, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068406290165506828, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
 --- !u!224 &4619334346359705533 stripped
@@ -469,6 +498,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a82d0738c86cff44b7f181c9047fbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4619334347715241207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2068406290165506830, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+  m_PrefabInstance: {fileID: 6678654158887471097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4619334346387307347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2068406288831839402, guid: e8c2aaa04af6f4b4d97f14f3edd75b20, type: 3}
+  m_PrefabInstance: {fileID: 6678654158887471097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6135424521077066660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619334346387307347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
+--- !u!114 &8246367309830656636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619334347715241207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &6678654159378446870
 PrefabInstance:
   m_ObjectHideFlags: 0
