@@ -75,7 +75,15 @@ public class CreateDestroyMiniGame : MiniGameManager
 		{
 			winner = destroyedCount >= 5 ? 2 : 1;
 			VictoryText.gameObject.SetActive(true);
-			VictoryText.text = "Player " + winner + " Wins!";
+
+			if(winner == 1)
+			{
+				VictoryText.text = "Creation Wins!";
+			}
+			else
+			{
+				VictoryText.text = "Destruction Wins";
+			}
 			
 			endTimer += Time.deltaTime;
 			if(endTimer >= EndTimer)

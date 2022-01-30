@@ -218,7 +218,7 @@ MonoBehaviour:
   Usable: 1
   Health: 100
   MaxHealth: 100
-  CreateRate: 30
+  CreateRate: 40
   DestroyRate: 150
   HealthBarScale: 10
   HealthBar: {fileID: 2054392599056995443}
