@@ -54,7 +54,7 @@ public class Sponge : MonoBehaviour
 		}
 
 		float speed = MyRigidBody.velocity.magnitude;
-		MySound.volume = speed / 7f;
+		MySound.volume = Mathf.Min(speed / 10f, 0.3f);
 	}
 
 	/// <summary>
