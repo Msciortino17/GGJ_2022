@@ -17,6 +17,8 @@ public class CreateDestroyMiniGame : MiniGameManager
 	public Text VictoryText;
 	public Transform TitleCard;
 	public Transform CanvasRef;
+	public int WinningFontSize;
+	public int LosingFontSize; 
 
 	private float remainingTime;
 	private bool roundOver;
@@ -57,30 +59,35 @@ public class CreateDestroyMiniGame : MiniGameManager
 		}
 
 		// Check created and destroyed
-		bool anyDestroyed = false;
-		bool anyCreated = false;
 		int destroyedCount = 0;
 		int createCount = 0;
 		foreach(var energy in EnergyPieces)
 		{
 			if(energy.Usable)
 			{
-				anyCreated = true;
 				createCount++;
 			}
 			else
 			{
-				anyDestroyed = true;
 				destroyedCount++;
 			}
 		}
 
 		// Update Score
+		float scale = Mathf.Abs(Mathf.Sin(GameManager.Instance.RoundTimer * 2.0f)) + 0.75f;
+
+		bool creatorWinning = CreatorScore >= 6;
+		bool destroyerWinning = !creatorWinning;
+
 		CreatorScore = createCount;
 		CreatorScoreText.text = CreatorScore.ToString();
+		// CreatorScoreText.fontSize = creatorWinning ? WinningFontSize : LosingFontSize;
+		CreatorScoreText.transform.localScale = creatorWinning ? Vector3.one * scale : Vector3.one;
 		
 		DestroyerScore = destroyedCount;
 		DestroyerScoreText.text = DestroyerScore.ToString();
+		// DestroyerScoreText.fontSize = DestroyerScore >= 5 ? WinningFontSize : LosingFontSize;
+		DestroyerScoreText.transform.localScale = destroyerWinning ? Vector3.one * scale : Vector3.one;
 
 		// Handle Win Conditions
 
@@ -107,19 +114,6 @@ public class CreateDestroyMiniGame : MiniGameManager
 			{
 				RoundOver(winner);
 			}
-		}
-
-
-		// ALL CREATED condition
-		if(!anyDestroyed)
-		{
-			RoundOver(1);
-		}
-
-		// ALL DESTROYED condition
-		if(!anyCreated)
-		{
-			RoundOver(2);
 		}
 	}
 }
