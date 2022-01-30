@@ -19,6 +19,8 @@ public class DirtyCrossHair : MonoBehaviour
 	public GameObject DirtSpotPrefab;
 	public LayerMask DirtLayer;
 	public CleanDirtyMiniGame MiniGameManagerRef;
+	public AudioSource PigSound;
+	private float soundTimer;
 
 	// Start is called before the first frame update
 	void Start()
@@ -27,12 +29,17 @@ public class DirtyCrossHair : MonoBehaviour
 		MyAnimator = GetComponent<Animator>();
 	}
 
+	private void FixedUpdate()
+	{
+		UpdateMoveInput();
+	}
+
 	// Update is called once per frame
 	void Update()
 	{
-		UpdateMoveInput();
 		WrapScreen();
 		UpdatePlaceDirt();
+		UpdateSound();
 	}
 
 	/// <summary>
@@ -59,7 +66,8 @@ public class DirtyCrossHair : MonoBehaviour
 			MySprite.flipX = false;
 		}
 
-		MyAnimator.SetFloat("Speed", MyRigidBody.velocity.magnitude);
+		float speed = MyRigidBody.velocity.magnitude;
+		MyAnimator.SetFloat("Speed", speed);
 	}
 
 	/// <summary>
@@ -101,6 +109,20 @@ public class DirtyCrossHair : MonoBehaviour
 		{
 			Instantiate(DirtSpotPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f), Quaternion.identity, MiniGameManagerRef.transform);
 			spawnDirtTimer = 5f;
+		}
+	}
+
+	/// <summary>
+	/// Randomly plays the pig squeel.
+	/// </summary>
+	private void UpdateSound()
+	{
+		soundTimer -= Time.deltaTime;
+		if (soundTimer <= 0f)
+		{
+			PigSound.pitch = Random.Range(0.8f, 1.5f);
+			PigSound.Play();
+			soundTimer = Random.Range(3f, 8f);
 		}
 	}
 }

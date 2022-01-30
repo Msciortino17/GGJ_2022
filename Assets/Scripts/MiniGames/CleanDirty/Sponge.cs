@@ -12,6 +12,8 @@ public class Sponge : MonoBehaviour
 	public int ScreenWidth;
 	public int ScreenHeight;
 
+	public AudioSource MySound;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -21,8 +23,12 @@ public class Sponge : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		UpdateMoveInput();
 		WrapScreen();
+	}
+
+	private void FixedUpdate()
+	{
+		UpdateMoveInput();
 	}
 
 	/// <summary>
@@ -46,6 +52,9 @@ public class Sponge : MonoBehaviour
 		{
 			MyRigidBody.AddForce(MoveSpeed, 0f, 0f);
 		}
+
+		float speed = MyRigidBody.velocity.magnitude;
+		MySound.volume = speed / 7f;
 	}
 
 	/// <summary>

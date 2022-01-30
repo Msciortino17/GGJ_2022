@@ -16,16 +16,29 @@ public class CleanDirtyMiniGame : MiniGameManager
 	public Text DirtyRatingText;
 	public Text VictoryText;
 	public Text InstructionsText;
+	public GameObject TitleCard;
+	public GameObject CanvasRef;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		victoryTimer = 5f;
+		TitleCard.SetActive(true);
+		CanvasRef.SetActive(false);
+		GameManager.Instance.HUDMenu.gameObject.SetActive(false);
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (TitleCard.gameObject.activeInHierarchy && (Input.anyKey || GameManager.Instance.RoundTimer > 3f))
+		{
+			TitleCard.SetActive(false);
+			CanvasRef.SetActive(true);
+			GameManager.Instance.HUDMenu.gameObject.SetActive(true);
+			GameManager.Instance.PlayBeepBoop();
+		}
+
 		UpdateDirtyRatingText();
 		UpdateVictoryCheck();
 	}
@@ -76,7 +89,7 @@ public class CleanDirtyMiniGame : MiniGameManager
 			}
 		}
 
-		if (GameManager.Instance.RoundTimer > 5f)
+		if (GameManager.Instance.RoundTimer > 7f)
 		{
 			InstructionsText.gameObject.SetActive(false);
 		}
