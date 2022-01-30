@@ -5,6 +5,7 @@ using UnityEngine;
 public class Creator : MonoBehaviour
 {
     public float Speed = 500.0f;
+    public ParticleSystem GlobalEffect;
 
     // Start is called before the first frame update
     void Start() {
@@ -37,8 +38,7 @@ public class Creator : MonoBehaviour
 
     void FixedHandleMovement(float fdt) {
         if (mInputDir.magnitude > 0) {
-            float speed = Speed * fdt;
-            mRigidbody.AddForce(mInputDir * speed, ForceMode.VelocityChange);
+            mRigidbody.AddForce(mInputDir * Speed * fdt, ForceMode.VelocityChange);
         }
     }
 

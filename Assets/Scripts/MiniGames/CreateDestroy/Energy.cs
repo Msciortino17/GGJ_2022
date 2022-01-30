@@ -6,6 +6,9 @@ public class Energy : MonoBehaviour
 {
     public ParticleSystem CreatedParticles;
     public ParticleSystem DestroyedParticles;
+    public ParticleSystem CreatingParticles;
+    public ParticleSystem DestroyingParticles;
+    public ParticleSystem CreatedParticlesBurst;
     public bool Usable;
     public float Health;
     public float MaxHealth;
@@ -90,10 +93,12 @@ public class Energy : MonoBehaviour
         if(other.tag == "Destroyer" && Health > 0)
         {
             DestroySound.Play();
+            DestroyingParticles.Play();
         }
         else if (other.tag == "Creator" && Health < MaxHealth)
         {
             CreateSound.Play();
+            CreatedParticles.Play();
         }
     }
 
@@ -109,6 +114,18 @@ public class Energy : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Destroyer" && Health > 0)
+        {
+            DestroyingParticles.Stop();
+        }
+        else if (other.tag == "Creator" && Health < MaxHealth)
+        {
+            CreatedParticles.Stop();
+        }
+    }
+
     private void ChangeHealth(float change, float dt)
     {
         SetHealth(Health + change * dt);
@@ -118,6 +135,7 @@ public class Energy : MonoBehaviour
     {
         float oldHealth = Health;
         Health = Mathf.Min(MaxHealth, Mathf.Max(health, 0));
+        bool healthChanged = !WithinThreshold(oldHealth, Health);
 
         if(WithinThreshold(Health, 0))
         {
@@ -126,6 +144,10 @@ public class Energy : MonoBehaviour
         else if (WithinThreshold(Health, MaxHealth))
         {
             Usable = true;
+            if(healthChanged)
+            {
+                CreatedParticlesBurst.Play();
+            }
         }
     }
 
