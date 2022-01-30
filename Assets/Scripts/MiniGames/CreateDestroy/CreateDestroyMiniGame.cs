@@ -15,6 +15,8 @@ public class CreateDestroyMiniGame : MiniGameManager
 	public Text CreatorScoreText;
 	public Text DestroyerScoreText;
 	public Text VictoryText;
+	public Transform TitleCard;
+	public Transform CanvasRef;
 
 	private float remainingTime;
 	private bool roundOver;
@@ -26,6 +28,12 @@ public class CreateDestroyMiniGame : MiniGameManager
 	{
 		InitManager();
 
+		// Title Card
+		TitleCard.gameObject.SetActive(true);
+		CanvasRef.gameObject.SetActive(false);
+		GameManager.Instance.HUDMenu.gameObject.SetActive(false);
+
+		// Randomize Order of Energy Pieces
 		System.Random random = new System.Random();	
 		var randomEnergies = EnergyPieces.OrderBy(x => random.Next()).ToArray();
 		for(int i = 0; i < randomEnergies.Length / 2; ++i)
@@ -33,12 +41,21 @@ public class CreateDestroyMiniGame : MiniGameManager
 			randomEnergies[i].InitUsable(false);
 		}
 
+		// Set Time
 		remainingTime = MaxRemainingTime;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		if (TitleCard.gameObject.activeInHierarchy && (Input.anyKey || GameManager.Instance.RoundTimer > 3f))
+		{
+			TitleCard.gameObject.SetActive(false);
+			CanvasRef.gameObject.SetActive(true);
+			GameManager.Instance.HUDMenu.gameObject.SetActive(true);
+			GameManager.Instance.PlayBeepBoop();
+		}
+
 		// Check created and destroyed
 		bool anyDestroyed = false;
 		bool anyCreated = false;
