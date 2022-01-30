@@ -231,6 +231,7 @@ public class HeavenHellMiniGame : MiniGameManager
 
 					if (HeavenFighter.Health <= 0)
 					{
+						Destroy(Instantiate(HeavenFighter.DeathParticles, HeavenFighter.transform.position, Quaternion.identity), 3f);
 						Destroy(HeavenFighter.gameObject);
 						HeavenFighter = null;
 						//HellFighter?.StartMoving(HeavenSpawnSpot.position);
@@ -238,6 +239,7 @@ public class HeavenHellMiniGame : MiniGameManager
 
 					if (HellFighter.Health <= 0)
 					{
+						Destroy(Instantiate(HellFighter.DeathParticles, HellFighter.transform.position, Quaternion.identity), 3f);
 						Destroy(HellFighter.gameObject);
 						HellFighter = null;
 						//HeavenFighter?.StartMoving(HellSpawnSpot.position);

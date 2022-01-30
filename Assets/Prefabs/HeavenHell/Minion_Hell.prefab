@@ -95,5 +95,9 @@ PrefabInstance:
       propertyPath: OffensePower
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5916377680639641197, guid: 91534eba727138a41ba377927f8db1a6, type: 3}
+      propertyPath: DeathParticles
+      value: 
+      objectReference: {fileID: 1163840857423113591, guid: 51bba7e96145147c09074a3572ac998f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91534eba727138a41ba377927f8db1a6, type: 3}

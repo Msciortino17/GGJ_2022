@@ -57,6 +57,7 @@ MonoBehaviour:
   MySpriteTransform: {fileID: 2715020941182381023}
   MyHealthBar: {fileID: 3849858321233267027}
   MyFightSound: {fileID: 4417667464712361421}
+  DeathParticles: {fileID: 1163840857423113591, guid: 51bba7e96145147c09074a3572ac998f, type: 3}
 --- !u!1 &3430511190471404351
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 65a3554543615ac409dd49c76fb01206, type: 3}
-  m_Color: {r: 0.2665549, g: 0.9150943, b: 0.21927728, a: 1}
+  m_Color: {r: 0.21960783, g: 0.9137255, b: 0.22327262, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
