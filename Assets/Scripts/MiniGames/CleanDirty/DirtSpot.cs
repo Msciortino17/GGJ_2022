@@ -8,15 +8,19 @@ public class DirtSpot : MonoBehaviour
 	private float startingDirtAmount;
 	public SpriteRenderer MySprite;
 
+	public List<Sprite> RandomSprites;
+
 	// Start is called before the first frame update
 	void Start()
 	{
-		float size = Random.Range(0.5f, 2f);
+		float size = Random.Range(1f, 3f);
 		DirtLevel = size;
 		startingDirtAmount = DirtLevel;
 		Vector3 scale = transform.localScale;
 		scale.x = scale.y = scale.z = size;
 		transform.localScale = scale;
+		MySprite.sprite = RandomSprites[Random.Range(0, RandomSprites.Count)];
+		transform.Rotate(0f, 0f, Random.Range(0f, 360f));
 	}
 
 	// Update is called once per frame

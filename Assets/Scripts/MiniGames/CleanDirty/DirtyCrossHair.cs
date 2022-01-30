@@ -92,7 +92,7 @@ public class DirtyCrossHair : MonoBehaviour
 	/// </summary>
 	private void UpdatePlaceDirt()
 	{
-		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f, DirtLayer);
+		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.5f, Vector3.up, 0f, DirtLayer);
 		int numHits = hits.Length;
 		spawnDirtSpeed = Mathf.Max(0f, MaxNearbySpots - numHits);
 

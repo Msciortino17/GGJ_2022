@@ -47,6 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DirtLevel: 0
   MySprite: {fileID: 1858219107502367804}
+  RandomSprites:
+  - {fileID: 21300000, guid: afe4ce96ae510644984e0eb6f04a592d, type: 3}
+  - {fileID: 21300000, guid: 86cbe738e6f268746a69d2705a4013fc, type: 3}
+  - {fileID: 21300000, guid: 06e1d5a27842b434ea2b31db4cc8ec68, type: 3}
+  - {fileID: 21300000, guid: e354e28134b2d6c4abb4c254b4bf3282, type: 3}
 --- !u!135 &1858219106508204567
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -130,7 +135,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 34262d24abfcf924fa6ab4e67f5eb445, type: 3}
   m_Color: {r: 0.6037736, g: 0.4013768, b: 0.25290138, a: 1}
   m_FlipX: 0
