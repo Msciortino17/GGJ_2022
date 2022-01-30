@@ -5782,7 +5782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundTimerRef: {fileID: 1055625421}
   DirtyVictoryAmount: 0.5
-  MaximumDirty: 40
+  MaximumDirty: 60
   DirtyRating: 0
   GameOver: 0
   Winner: 0

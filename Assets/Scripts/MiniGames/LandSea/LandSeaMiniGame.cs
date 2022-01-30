@@ -56,7 +56,7 @@ public class LandSeaMiniGame : MiniGameManager
                 RoundOver(Winner);
             }
         }
-        if (TitleCard.gameObject.activeInHierarchy && (Input.anyKey || GameManager.Instance.RoundTimer > 3f))
+        if (TitleCard.gameObject.activeInHierarchy && ((Input.anyKey && GameManager.Instance.RoundTimer > 1.5f) || GameManager.Instance.RoundTimer > 3f))
         {
             TitleCard.SetActive(false);
             CanvasRef.SetActive(true);
