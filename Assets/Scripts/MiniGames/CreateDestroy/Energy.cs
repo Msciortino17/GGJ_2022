@@ -15,6 +15,8 @@ public class Energy : MonoBehaviour
     public Transform HealthBar;
     public Transform HealthBarBg;
     public Sprite UsableEnergySprite;
+    public AudioSource DestroySound;
+    public AudioSource CreateSound;
 
     public void InitUsable(bool usable)
     {
@@ -83,6 +85,18 @@ public class Energy : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Destroyer" && Health > 0)
+        {
+            DestroySound.Play();
+        }
+        else if (other.tag == "Creator" && Health < MaxHealth)
+        {
+            CreateSound.Play();
+        }
+    }
+
     void OnTriggerStay(Collider other)
     {
         if(other.tag == "Destroyer")
@@ -102,6 +116,7 @@ public class Energy : MonoBehaviour
 
     private void SetHealth(float health)
     {
+        float oldHealth = Health;
         Health = Mathf.Min(MaxHealth, Mathf.Max(health, 0));
 
         if(WithinThreshold(Health, 0))
