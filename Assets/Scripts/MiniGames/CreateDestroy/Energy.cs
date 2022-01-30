@@ -14,6 +14,7 @@ public class Energy : MonoBehaviour
     public float HealthBarScale;
     public Transform HealthBar;
     public Transform HealthBarBg;
+    public Sprite UsableEnergySprite;
 
     public void InitUsable(bool usable)
     {
@@ -31,7 +32,7 @@ public class Energy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mSpriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -47,11 +48,13 @@ public class Energy : MonoBehaviour
         {
             if(!CreatedParticles.isPlaying) CreatedParticles.Play();
             if(DestroyedParticles.isPlaying) DestroyedParticles.Stop();
+            spriteRenderer.sprite = UsableEnergySprite;
         }
         else
         {
             if(!DestroyedParticles.isPlaying) DestroyedParticles.Play();
             if(CreatedParticles.isPlaying) CreatedParticles.Stop();
+            spriteRenderer.sprite = null;
         }
         
     }
@@ -116,5 +119,5 @@ public class Energy : MonoBehaviour
         return Mathf.Abs(a - b) < .00001f;
     }
 
-    private SpriteRenderer mSpriteRenderer;
+    private SpriteRenderer spriteRenderer;
 }
