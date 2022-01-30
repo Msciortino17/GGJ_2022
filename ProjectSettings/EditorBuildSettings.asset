@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGames/CleanDirty.unity
     guid: 00a9b576e063df14387fa0fc8ca068f8
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/LandSea.unity
+    guid: 69a0b9c590c0be54a9ae82b8e1757250
   m_configObjects: {}

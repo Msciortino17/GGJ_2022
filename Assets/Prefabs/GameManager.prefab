@@ -360,8 +360,8 @@ MonoBehaviour:
   Winner: 0
   CurrentRound: 0
   MinigameNames:
-  - TestMiniGame
   - HeavenHell
+  - LandSea
   - CleanDirty
   TotalGameTimer: 0
   RoundTimer: 0
