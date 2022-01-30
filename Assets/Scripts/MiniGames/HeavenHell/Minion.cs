@@ -20,6 +20,8 @@ public class Minion : MonoBehaviour
 	private float fullHealthScale;
 	private float fightShakeSpeed;
 
+	public AudioSource MyFightSound;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -85,6 +87,7 @@ public class Minion : MonoBehaviour
 	{
 		FightPosition = position;
 		MyState = MinionState.Moving;
+		MyFightSound.Play();
 	}
 
 	/// <summary>

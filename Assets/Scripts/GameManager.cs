@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
 	public GameObject MainCanvas;
 	public GameObject PauseMenu;
 	public HUD HUDMenu;
+	public AudioSource MyBeepBoop;
+	public AudioSource MyButtonSound;
 
 	/// <summary>
 	/// Start is called before the first frame update
@@ -151,6 +153,7 @@ public class GameManager : MonoBehaviour
 		int levelToLoad = CurrentRound % MinigameNames.Count;
 		SceneManager.LoadScene(MinigameNames[levelToLoad]);
 		HUDMenu.InitHUDInfo();
+		PlayBeepBoop();
 	}
 
 	/// <summary>
@@ -171,5 +174,21 @@ public class GameManager : MonoBehaviour
 		Instance = null;
 		Destroy(gameObject);
 		SceneManager.LoadScene("MainMenu");
+	}
+
+	/// <summary>
+	/// Plays the beep boop sound effect
+	/// </summary>
+	public void PlayBeepBoop()
+	{
+		MyBeepBoop.Play();
+	}
+
+	/// <summary>
+	/// Plays the button sound effect
+	/// </summary>
+	public void PlayButtonSound()
+	{
+		MyButtonSound.Play();
 	}
 }

@@ -47,6 +47,7 @@ public class HeavenHellMiniGame : MiniGameManager
 		TitleCard.SetActive(true);
 		CanvasRef.SetActive(false);
 		GameManager.Instance.HUDMenu.gameObject.SetActive(false);
+		//GameManager.Instance.PlayBeepBoop();
 	}
 
 	/// <summary>
@@ -67,11 +68,12 @@ public class HeavenHellMiniGame : MiniGameManager
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.anyKey || GameManager.Instance.RoundTimer > 3f)
+		if (TitleCard.gameObject.activeInHierarchy && (Input.anyKey || GameManager.Instance.RoundTimer > 3f))
 		{
 			TitleCard.SetActive(false);
 			CanvasRef.SetActive(true);
 			GameManager.Instance.HUDMenu.gameObject.SetActive(true);
+			GameManager.Instance.PlayBeepBoop();
 		}
 
 		switch (CurrentState)
@@ -109,6 +111,7 @@ public class HeavenHellMiniGame : MiniGameManager
 			Minion bigHeaven = Instantiate(MinionHeavenBig, HeavenSpawnSpot.position, Quaternion.identity, transform).GetComponent<Minion>();
 			//bigHeaven.transform.Translate(Random.Range(-7f, 7f), 0f, 0f);
 			HeavenMinions.Add(bigHeaven);
+			GameManager.Instance.PlayButtonSound();
 		}
 		if (Input.GetKeyDown(KeyCode.W) && HeavenMoney >= MinionCosts[1])
 		{
@@ -116,6 +119,7 @@ public class HeavenHellMiniGame : MiniGameManager
 			Minion heaven = Instantiate(MinionHeaven, HeavenSpawnSpot.position, Quaternion.identity, transform).GetComponent<Minion>();
 			//heaven.transform.Translate(Random.Range(-7f, 7f), 0f, 0f);
 			HeavenMinions.Add(heaven);
+			GameManager.Instance.PlayButtonSound();
 		}
 		if (Input.GetKeyDown(KeyCode.D) && HeavenMoney >= MinionCosts[2])
 		{
@@ -123,6 +127,7 @@ public class HeavenHellMiniGame : MiniGameManager
 			Minion smallHeaven = Instantiate(MinionHeavenSmall, HeavenSpawnSpot.position, Quaternion.identity, transform).GetComponent<Minion>();
 			//smallHeaven.transform.Translate(Random.Range(-7f, 7f), 0f, 0f);
 			HeavenMinions.Add(smallHeaven);
+			GameManager.Instance.PlayButtonSound();
 		}
 		if (Input.GetKeyDown(KeyCode.LeftArrow) && HellMoney >= MinionCosts[3])
 		{
@@ -130,6 +135,7 @@ public class HeavenHellMiniGame : MiniGameManager
 			Minion bigHell = Instantiate(MinionHellBig, HellSpawnSpot.position, Quaternion.identity, transform).GetComponent<Minion>();
 			//bigHell.transform.Translate(Random.Range(-7f, 7f), 0f, 0f);
 			HellMinions.Add(bigHell);
+			GameManager.Instance.PlayButtonSound();
 		}
 		if (Input.GetKeyDown(KeyCode.UpArrow) && HellMoney >= MinionCosts[4])
 		{
@@ -137,6 +143,7 @@ public class HeavenHellMiniGame : MiniGameManager
 			Minion hell = Instantiate(MinionHell, HellSpawnSpot.position, Quaternion.identity, transform).GetComponent<Minion>();
 			//hell.transform.Translate(Random.Range(-7f, 7f), 0f, 0f);
 			HellMinions.Add(hell);
+			GameManager.Instance.PlayButtonSound();
 		}
 		if (Input.GetKeyDown(KeyCode.RightArrow) && HellMoney >= MinionCosts[5])
 		{
@@ -144,6 +151,7 @@ public class HeavenHellMiniGame : MiniGameManager
 			Minion smallHell = Instantiate(MinionHellSmall, HellSpawnSpot.position, Quaternion.identity, transform).GetComponent<Minion>();
 			//smallHell.transform.Translate(Random.Range(-7f, 7f), 0f, 0f);
 			HellMinions.Add(smallHell);
+			GameManager.Instance.PlayButtonSound();
 		}
 
 		HeavenMoneyText.text = "$" + HeavenMoney;

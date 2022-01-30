@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 	[Header("References")]
 	public GameObject CreditsMenu;
 	public GameObject TitleMenu;
+	public AudioSource ButtonSound;
 
 	/// <summary>
 	/// Start is called before the first frame update
@@ -30,6 +31,7 @@ public class MainMenu : MonoBehaviour
 	/// </summary>
 	public void PlayGameButton()
 	{
+		ButtonSound.Play();
 		SceneManager.LoadScene("Gameplay");
 	}
 
@@ -38,6 +40,7 @@ public class MainMenu : MonoBehaviour
 	/// </summary>
 	public void ToggleCreditsButton()
 	{
+		ButtonSound.Play();
 		CreditsMenu.gameObject.SetActive(!CreditsMenu.gameObject.activeInHierarchy);
 		TitleMenu.gameObject.SetActive(!TitleMenu.gameObject.activeInHierarchy);
 	}
@@ -47,6 +50,7 @@ public class MainMenu : MonoBehaviour
 	/// </summary>
 	public void ExitButton()
 	{
+		ButtonSound.Play();
 		Application.Quit();
 	}
 }
