@@ -5,6 +5,8 @@ using UnityEngine;
 public class DirtyCrossHair : MonoBehaviour
 {
 	private Rigidbody MyRigidBody;
+	public SpriteRenderer MySprite;
+	private Animator MyAnimator;
 
 	public float MoveSpeed;
 
@@ -22,6 +24,7 @@ public class DirtyCrossHair : MonoBehaviour
 	void Start()
 	{
 		MyRigidBody = GetComponent<Rigidbody>();
+		MyAnimator = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
@@ -44,6 +47,7 @@ public class DirtyCrossHair : MonoBehaviour
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			MyRigidBody.AddForce(-MoveSpeed, 0f, 0f);
+			MySprite.flipX = true;
 		}
 		if (Input.GetKey(KeyCode.DownArrow))
 		{
@@ -52,7 +56,10 @@ public class DirtyCrossHair : MonoBehaviour
 		if (Input.GetKey(KeyCode.RightArrow))
 		{
 			MyRigidBody.AddForce(MoveSpeed, 0f, 0f);
+			MySprite.flipX = false;
 		}
+
+		MyAnimator.SetFloat("Speed", MyRigidBody.velocity.magnitude);
 	}
 
 	/// <summary>
@@ -85,14 +92,14 @@ public class DirtyCrossHair : MonoBehaviour
 	/// </summary>
 	private void UpdatePlaceDirt()
 	{
-		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 2f, Vector3.up, 0f, DirtLayer);
+		RaycastHit[] hits = Physics.SphereCastAll(transform.position, 1.5f, Vector3.up, 0f, DirtLayer);
 		int numHits = hits.Length;
 		spawnDirtSpeed = Mathf.Max(0f, MaxNearbySpots - numHits);
 
 		spawnDirtTimer -= Time.deltaTime * spawnDirtSpeed;
 		if (spawnDirtTimer <= 0f)
 		{
-			Instantiate(DirtSpotPrefab, transform.position + new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0f), Quaternion.identity, MiniGameManagerRef.transform);
+			Instantiate(DirtSpotPrefab, transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f), Quaternion.identity, MiniGameManagerRef.transform);
 			spawnDirtTimer = 5f;
 		}
 	}

@@ -35,6 +35,8 @@ public class HeavenHellMiniGame : MiniGameManager
 	public Text HeavenMoneyText;
 	public Text HellMoneyText;
 	public Text VictoryText;
+	public GameObject TitleCard;
+	public GameObject CanvasRef;
 
 	// Start is called before the first frame update
 	void Start()
@@ -42,6 +44,9 @@ public class HeavenHellMiniGame : MiniGameManager
 		InitManager();
 		LoadCosts();
 		CurrentState = HeavenHellState.Buying;
+		TitleCard.SetActive(true);
+		CanvasRef.SetActive(false);
+		GameManager.Instance.HUDMenu.gameObject.SetActive(false);
 	}
 
 	/// <summary>
@@ -62,6 +67,13 @@ public class HeavenHellMiniGame : MiniGameManager
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.anyKey || GameManager.Instance.RoundTimer > 3f)
+		{
+			TitleCard.SetActive(false);
+			CanvasRef.SetActive(true);
+			GameManager.Instance.HUDMenu.gameObject.SetActive(true);
+		}
+
 		switch (CurrentState)
 		{
 			case HeavenHellState.Buying:
