@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Sponge
+  - Creator
+  - Destroyer
   layers:
   - Default
   - TransparentFX
