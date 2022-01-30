@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 5655622652411111944}
   - component: {fileID: 5340105287982667927}
   m_Layer: 0
-  m_Name: CreatorParticles
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

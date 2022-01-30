@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 4897272294471711659}
   - component: {fileID: 8780164284467286233}
   m_Layer: 0
-  m_Name: CreatorParticles
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1462,8 +1462,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.2028302, g: 1, b: 0.8089265, a: 1}
-        key1: {r: 0.48627454, g: 0.67058825, b: 0.9450981, a: 0}
+        key0: {r: 0.4575472, g: 0.77000636, b: 1, a: 1}
+        key1: {r: 0.45882356, g: 0.7686275, b: 1, a: 0}
         key2: {r: 0.48627454, g: 0.67058825, b: 0.9450981, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
