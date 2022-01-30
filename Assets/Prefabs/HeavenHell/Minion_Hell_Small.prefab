@@ -75,6 +75,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.471
       objectReference: {fileID: 0}
+    - target: {fileID: 4417667464712361421, guid: 91534eba727138a41ba377927f8db1a6, type: 3}
+      propertyPath: m_Pitch
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 4417667464712361421, guid: 91534eba727138a41ba377927f8db1a6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c10925b77a7a67440a8d86961b7f120d, type: 3}
     - target: {fileID: 5916377680639641197, guid: 91534eba727138a41ba377927f8db1a6, type: 3}
       propertyPath: Speed
       value: 2
