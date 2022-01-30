@@ -5346,9 +5346,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Player 1, Clean the dirt
+  m_Text: 'Player 1, Clean the dirt with WASD
 
-    Player 2, Run around and make more dirt'
+    Player 2, Spread dirt with Arrow
+    keys'
 --- !u!222 &896093543
 CanvasRenderer:
   m_ObjectHideFlags: 0
