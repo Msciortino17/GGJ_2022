@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MiniGames/LandSea.unity
     guid: 69a0b9c590c0be54a9ae82b8e1757250
+  - enabled: 1
+    path: Assets/Scenes/MiniGames/CreateDestroy.unity
+    guid: dab1d06c362a8ed40b98faabcfaa857b
   m_configObjects: {}
