@@ -38,6 +38,9 @@ public class Energy : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        CreatingParticles.Stop();
+        DestroyingParticles.Stop();
     }
 
     // Update is called once per frame
@@ -93,12 +96,10 @@ public class Energy : MonoBehaviour
         if(other.tag == "Destroyer" && Health > 0)
         {
             DestroySound.Play();
-            DestroyingParticles.Play();
         }
         else if (other.tag == "Creator" && Health < MaxHealth)
         {
             CreateSound.Play();
-            CreatedParticles.Play();
         }
     }
 
@@ -107,10 +108,12 @@ public class Energy : MonoBehaviour
         if(other.tag == "Destroyer")
         {
             ChangeHealth( -DestroyRate, Time.fixedDeltaTime);
+            if(Health > 0) DestroyingParticles.Play();
         }
         else if (other.tag == "Creator")
         {
             ChangeHealth( CreateRate, Time.fixedDeltaTime);
+            if(Health < MaxHealth) CreatingParticles.Play();
         }
     }
 
@@ -122,7 +125,7 @@ public class Energy : MonoBehaviour
         }
         else if (other.tag == "Creator" && Health < MaxHealth)
         {
-            CreatedParticles.Stop();
+            CreatingParticles.Stop();
         }
     }
 
